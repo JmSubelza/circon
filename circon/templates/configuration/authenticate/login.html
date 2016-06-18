@@ -1,0 +1,71 @@
+<!--{% block title %}Login{% endblock %}-->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Login</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="{% static "circon/css/bootstrap_login.min.css"%}" rel="stylesheet">
+        <link href="{% static "circon/css/styles_login.css"%}" rel="stylesheet">
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <style type="text/css">
+        #loginModal 
+        {
+          top:20%;
+          
+        } 
+        .modal-content {
+          width: 60%;
+
+          }
+        </style>
+	</head>
+	<body>
+<!--login modal-->
+<center>
+{% if mensaje %}
+<div class="alert alert-danger">
+<strong>Error! </strong> {{ mensaje }}
+</div>
+{% endif %}
+</center>
+<center>
+<h3></h3>
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h1 class="text-center">Circón</h1>
+      </div>
+      <div class="modal-body">
+          <form action="." method="POST" class="form col-md-12 center-block">{% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" placeholder="Usuario" name= username>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-lg" placeholder="Password" name= password>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block">Entrar</button>
+              <span class="pull-right"><a href="#">Registrarse</a></span><span><a href="#">Necesita ayuda?</a></span>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>
+</center>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="{% static "circon/js/bootstrap_login.min.js"%}"></script>
+	</body>
+</html>

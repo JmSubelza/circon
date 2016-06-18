@@ -1,0 +1,64 @@
+{% extends "base_warehouse.html" %}
+{% load staticfiles %}
+{% block title %}Detalle{% endblock %}
+{% block css %}{% endblock %}
+{% block javascript %}{% endblock %}
+{% block buttons %}
+ <div id="panel-buttons">
+    <div id="list-form">
+        <p>
+        <a href="{% url 'list_ambulances' %}"><button type="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-list"></span></button></a>
+        </p>
+    </div>
+    <div id="buttons">
+         <p>     
+            <a href="{% url 'create_ambulances' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
+            <a href="{% url 'update_ambulances' ambulances.pk %}"><button type="button" class="btn btn-success">Modificar</button></a>
+            <a href="{% url 'delete_ambulances' ambulances.pk %}"><button type="button" class="btn btn-danger">Eliminar</button></a>
+         </p> 
+    </div>
+</div>      
+{% endblock %}
+{% block form %}
+<style>
+th {
+    border-right:white 15px solid;
+    border-left:white 15px solid;
+}
+table {
+    width:160px;
+}
+
+</style>
+<div id="container">
+   <form action="." method="POST">
+   {% csrf_token %}
+   <h3 class="page-header">Ambulacia</h3>
+      <div style="width:700px; height:400px;">
+        <div style="float:left;">
+<!--#####row 1######-->
+            <table>
+             <tr><th>Ambulacia:</th></tr>
+            </table>
+        </div>
+        <div style="float:left;">
+            <table>
+              <tr><td>{{ ambulances.ambulances }}</td></tr>
+            </table>
+        </div>
+        <div style="float:left;">
+            <table>
+              <tr><th>Active:</th></tr>
+            </table>
+        </div>
+        <div style="float:left;">
+            <table>
+             <tr><td>{{ambulances.active}}</td></tr><tr><td><br><br></td></tr>
+            </table>
+        </div>
+
+  </div>
+</form>
+</div>
+
+{% endblock %}

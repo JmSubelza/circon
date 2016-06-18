@@ -1,0 +1,57 @@
+{% extends "base_sales.html" %}
+{% load staticfiles %}
+{% block title %}Ventas{% endblock %}
+{% block css %}{% endblock %}
+{% block javascript %}{% endblock %}
+{% block buttons %}
+ <div id="panel-buttons">
+    <div id="list-form">
+        <p>
+          <a href="{% url 'list_sale' %}"><button type="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-list"></span></button></a>
+        </p>
+    </div>
+    <div id="buttons">
+        <p>
+            <a href="{% url 'create_sale' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
+        </p>
+    </div>
+</div>      
+{% endblock %}
+
+{% block list %}
+<div class="col-lg-12">                  
+      <div class="table-responsive">
+          <table class="table table-hover table-striped">
+              <thead>
+                  <tr>
+                      <th>N°</th>
+                      <th>Cliente</th>
+                      <th>Fecha</th>
+                  </tr>
+              </thead>
+              <tbody>
+               {% if object_list %}
+                  {% for campo in object_list %}
+                     <tr>
+                        <td><a href="{% url 'detail_sale' campo.pk %}">{{campo.n_sale}}</a></td>
+                        <td><a href="{% url 'detail_sale' campo.pk %}">{{campo.customer}}</a></td>
+                        <td><a href="{% url 'detail_sale' campo.pk %}">{{campo.date_sale}}</a></td>
+                     </tr>
+                  {% endfor %}
+               {% else %}
+                   <h3></h3>
+               {% endif %}   
+              </tbody>
+          </table>
+      </div>
+  </div>
+<center>
+{% include "_pagination.html" %}
+</center>
+{% endblock %}
+</div>
+
+
+{% block form %}
+
+{% endblock %}
