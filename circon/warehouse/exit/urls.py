@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, url
-from circon.warehouse.exit.views import ListExit
-from circon.warehouse.exit.views import CreateExit
-from circon.warehouse.exit.views import DetailExitDetail
-from circon.warehouse.exit.views import UpdateExit
-from circon.warehouse.exit.views import DeleteExit
-from circon.warehouse.exit.views import Confirm
-from circon.warehouse.exit.views import Delivered
-from circon.warehouse.exit.views import Cancel
+from .views import ListExit
+from .views import CreateExit
+from .views import DetailExitDetail
+from .views import UpdateExit
+from .views import DeleteExit
+from .views import Confirm
+from .views import Delivered
+from .views import Cancel
 
 urlpatterns = patterns(' ',
                        url(r'^List_Exit$', ListExit.as_view(),

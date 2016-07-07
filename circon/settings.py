@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'wkhtmltopdf',
     'import_export',
+    'rest_framework',
 
 
 
@@ -144,7 +145,7 @@ WKHTMLTOPDF_CMD = '/usr/local/bin/wkhtmltopdf'
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'circon/static')
+#  STATIC_ROOT = os.path.join(BASE_DIR, 'circon/static')
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'circon/static'),)
 

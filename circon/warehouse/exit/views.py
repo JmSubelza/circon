@@ -14,6 +14,7 @@ from .forms import SaleFormSet
 from .forms import SaleDetailForm
 from extra_views import UpdateWithInlinesView
 from extra_views import InlineFormSet
+from circon.warehouse.products.models import Products
 
 
 class ListExit(PaginationMixin, ListView):
@@ -117,6 +118,12 @@ class Delivered(UpdateView):
     initial = {'status': '1'}
 
     def get_success_url(self):
+        id_products_exit = SaleDetail.objects.filter(relationship_id=self.object.pk)
+        for x in id_products_exit:
+            cant_products = Products.objects.filter(id=x.products_id)
+            for z in cant_products:
+                total = z.quantity - x.quan_request
+                update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
         return reverse('detail_exit', kwargs={'pk': self.object.pk})
 
 

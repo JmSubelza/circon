@@ -10,5 +10,12 @@ class PurchaseForm(ModelForm):
         fields = '__all__'
 
 
+class PurchaseDetailForm(ModelForm):
+
+    class Meta:
+        model = PurchaseDetail
+        fields = '__all__'
+
+
 PurchaseFormSet = inlineformset_factory(Purchase, PurchaseDetail,
-                                        fields='__all__', extra=1)
+                                        form=PurchaseDetailForm, extra=1)

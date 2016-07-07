@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from circon.warehouse.products.models import Products
-from django.db import connection
 
 
 class Purchase(models.Model):
@@ -19,21 +17,16 @@ class Purchase(models.Model):
                                 blank=True)
     status = models.CharField(max_length=1, default='0', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.date_purchase.strftime('%d-%m-%Y')
 
 
 class PurchaseDetail(models.Model):
     relationship = models.ForeignKey(Purchase)
     products = models.ForeignKey('products.Products')
-    quantity = models.DecimalField(max_digits=100, decimal_places=2)
+    quantity = models.DecimalField(max_digits=10, decimal_places=2,
+                                   null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True,
                                 blank=True)
-
-    def save(self, *args, **kwargs):
-        cursor = connection.cursor()
-        cursor.execute("SELECT quantity FROM products_products WHERE id= %s", [self.products_id])
-        row = cursor.fetchone()
-        total = row[0] + self.quantity
-        p = Products.objects.values('quantity').filter(id=self.products_id).update(quantity=total)
-        super(PurchaseDetail, self).save(*args, **kwargs)
+    total_product = models.DecimalField(max_digits=10, decimal_places=2,
+                                        null=True, blank=True)

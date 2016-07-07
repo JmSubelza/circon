@@ -10,10 +10,12 @@ from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from pure_pagination.mixins import PaginationMixin
 from .forms import PurchaseForm
+from .forms import PurchaseDetailForm
 from .forms import PurchaseFormSet
 from extra_views import UpdateWithInlinesView
 from extra_views import InlineFormSet
 from wkhtmltopdf.views import PDFTemplateView
+from circon.warehouse.products.models import Products
 
 
 class ListPurchase(PaginationMixin, ListView):
@@ -80,6 +82,7 @@ class CreatePurchase(CreateView):
 
 class ItemInline(InlineFormSet):
     model = PurchaseDetail
+    form_class = PurchaseDetailForm
 
 
 class UpdatePurchase(UpdateWithInlinesView):
@@ -104,6 +107,12 @@ class Confirm(UpdateView):
     initial = {'status': '1'}
 
     def get_success_url(self):
+        id_products_detail = PurchaseDetail.objects.filter(relationship_id=self.object.pk)
+        for x in id_products_detail:
+            cant_products = Products.objects.filter(id=x.products_id)
+            for z in cant_products:
+                total = z.quantity + x.quantity
+                update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
         return reverse('detail_purchase', kwargs={'pk': self.object.pk})
 
 

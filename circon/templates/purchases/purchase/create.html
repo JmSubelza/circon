@@ -100,14 +100,15 @@ th {
            {{ purchase_form.non_form_errors }}
            {% for form in purchase_form %}
               {{ form.id }}
-              <div class="inline {{ purchase_form.prefix }}" >
-                <br>
-                  <label><select  class="form-control" style='width: 154px;' name= products {{ form.products }} &nbsp; </label>
-                  <label><input class="form-control"   style='width: 154px;' name= quantity  {{ form.quantity }} &nbsp;</label>
-                  <label><input class="form-control"   style='width: 154px;' name= price {{ form.price }}&nbsp;</label>
-                 <!--  <label><input class="form-control" style='width: 154px;' name=total {{ form.total }}</label> -->
-
+              <div class="inline {{ purchase_form.prefix }}">
+               <br>
+                  <label><select  class="form-control" style='width: 154px;' {{ form.products }} &nbsp;</label>
+                  <label><input class="form-control" style='width: 154px;' {{ form.quantity }} &nbsp;</label>
+                  <label><input class="form-control" style='width: 154px;' {{ form.price }} &nbsp;</label>
+                  <label><input class="form-control" style='width: 154px;' {{ form.total_product }} &nbsp;</label> &nbsp;
             </div>
+           {% endfor %}
+           </fieldset>
               <div>
                <br>
                   <label style='width: 154px;'></label>
@@ -129,17 +130,13 @@ th {
                   <label style='width: 154px;'>Total</label>
                   <label><input class="form-control" style='width: 154px;' name= total {{ form.total }}</label>
               </div>
-           {% endfor %}
+
            <p>
          <a href="{% url 'list_purchase' %}"><button type="button" class="btn btn-default">Cancelar</button></a>
          <button type="submit" class="btn btn-default">Guardar</button>
          </p>
-         </fieldset>
+
           <br>
-
-
-
-
 
    </form>
 </div>
