@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, url
-from circon.warehouse.entry.views import ListEntry
-from circon.warehouse.entry.views import CreateEntry
-from circon.warehouse.entry.views import DetailEntryDetail
-from circon.warehouse.entry.views import UpdateEntry
-from circon.warehouse.entry.views import DeleteEntry
-from circon.warehouse.entry.views import Confirm
-from circon.warehouse.entry.views import Cancel
+from .views import ListEntry
+from .views import CreateEntry
+from .views import DetailEntryDetail
+from .views import UpdateEntry
+from .views import DeleteEntry
+from .views import Confirm
+from .views import Received
+from .views import Cancel
 
 urlpatterns = patterns(' ',
                        url(r'^List_Entry$', ListEntry.as_view(),
@@ -23,6 +24,9 @@ urlpatterns = patterns(' ',
                        url(r'^Entry/Confirm/(?P<pk>[0-9]+)/$',
                            Confirm.as_view(),
                            name='confirm_entry'),
+                       url(r'^Entry/Received/(?P<pk>[0-9]+)/$',
+                           Received.as_view(),
+                           name='received_entry'),
                        url(r'^Entry/Cancel/(?P<pk>[0-9]+)/$', Cancel.as_view(),
                            name='cancel_entry'),
                        )

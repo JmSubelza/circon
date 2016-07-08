@@ -115,14 +115,14 @@ class Delivered(UpdateView):
     template_name = 'warehouse/exit/delivered.html'
     model = Sale
     fields = ['status']
-    initial = {'status': '1'}
+    initial = {'status': '2'}
 
     def get_success_url(self):
         id_products_exit = SaleDetail.objects.filter(relationship_id=self.object.pk)
         for x in id_products_exit:
             cant_products = Products.objects.filter(id=x.products_id)
             for z in cant_products:
-                total = z.quantity - x.quan_request
+                total = z.quantity - x.quantity
                 update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
         return reverse('detail_exit', kwargs={'pk': self.object.pk})
 

@@ -107,12 +107,12 @@ class Confirm(UpdateView):
     initial = {'status': '1'}
 
     def get_success_url(self):
-        id_products_detail = PurchaseDetail.objects.filter(relationship_id=self.object.pk)
-        for x in id_products_detail:
-            cant_products = Products.objects.filter(id=x.products_id)
-            for z in cant_products:
-                total = z.quantity + x.quantity
-                update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
+        # id_products_detail = PurchaseDetail.objects.filter(relationship_id=self.object.pk)
+        # for x in id_products_detail:
+        #     cant_products = Products.objects.filter(id=x.products_id)
+        #     for z in cant_products:
+        #         total = z.quantity + x.quantity
+        #         update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
         return reverse('detail_purchase', kwargs={'pk': self.object.pk})
 
 
@@ -120,7 +120,7 @@ class Cancel(UpdateView):
     template_name = 'purchases/purchase/cancel.html'
     model = Purchase
     fields = ['status']
-    initial = {'status': '2'}
+    initial = {'status': '3'}
 
     def get_success_url(self):
         return reverse('detail_purchase', kwargs={'pk': self.object.pk})

@@ -6,5 +6,6 @@ django-pure-pagination==0.3.0
 django-registration-defaults==0.4.4
 django-registration-redux==1.4
 django-wkhtmltopdf==3.0.0
+djangorestframework==3.3.3
 python-social-auth==0.2.19
 pillow==3.2.0

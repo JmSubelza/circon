@@ -35,41 +35,58 @@ webshims.polyfill('forms forms-ext');
             <a href="{% url 'confirm_entry' purchase.pk %}"><button type="button" class="btn btn-primary">Confirmar</button></a>
             {% endifequal %}
             {% ifequal purchase.status '1' %}
-            <a href="{% url 'cancel_entry' purchase.pk %}"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <a href="{% url 'received_entry' purchase.pk %}"><button type="button" class="btn btn-primary">Recibido</button></a>
+            {% endifequal %}
+            {% ifequal purchase.status '2' %}
+            <a href="{% url 'cancel_entry' purchase.pk %}"><button type="button" class="btn btn-danger">Cancelar</button></a>
             {% endifequal %}
         </p>
     </div>
 </div>
 
- {% ifequal purchase.status '0' %}
-         <div id="panel-status">
-            <p>
-               <div id="canceled-deactive"><p>Cancelado</p></div>
-               <div id="confirmed-deactive"><p>Confirmado</p></div>
-               <div id="draft"><p>Borrador</p></div>
-            </p>
-         </div>
-      {% endifequal %}
-      {% ifequal purchase.status '1' %}
-         <div id="panel-status">
-            <p>
-               <div id="canceled-deactive"><p>Cancelado</p></div>
-               <div id="confirmed"><p>Confirmado</p></div>
-               <div id="draft-deactive"><p>Borrador</p></div>
-               
-            </p>
-         </div>
-      {% endifequal %}
-      {% ifequal purchase.status '2' %}
-         <div id="panel-status">
-            <p>
-               <div id="canceled-deactive"><p>Cancelado</p></div>
-               <div id="confirmed-deactive"><p>Confirmado</p></div>
-               <div id="draft-deactive"><p>Borrador</p></div>
-               
-            </p>
-         </div>
-      {% endifequal %}
+{% ifequal purchase.status '0' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Recibido</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft"><p>Borrador</p></div>
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal purchase.status '1' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Recibido</p></div>
+              <div id="confirmed"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
+
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal purchase.status '2' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed"><p>Recibido</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
+
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal purchase.status '3' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Recibido</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
+
+           </p>
+        </div>
+     {% endifequal %}
 
 {% endblock %}
 {% block list %}
@@ -80,14 +97,14 @@ th {
     border-right:white 15px solid;
     border-left:white 30px solid;
     width: 120px;
-    
+
 }
 
 </style>
 <div id="container">
    <form action="." method="POST">
    {% csrf_token %}
-<!--#####row 1######--> 
+<!--#####row 1######-->
         <table>
           <legend>Registrar Compra</legend>
             <br>

@@ -39,23 +39,49 @@ webshims.polyfill('forms forms-ext');
     </div>
 </div>
 
- {% ifequal sale.status '0' %}
-         <div id="panel-status">
-            <p>
-               <div id="confirmed-deactive"><p>Confirmado</p></div>
-               <div id="draft"><p>Borrador</p></div>
-            </p>
-         </div>
-      {% endifequal %}
-      {% ifequal sale.status '1' %}
-         <div id="panel-status">
-            <p>
-               <div id="confirmed"><p>Confirmado</p></div>
-               <div id="draft-deactive"><p>Borrador</p></div>
+{% ifequal sale.status '0' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Entregado</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft"><p>Borrador</p></div>
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal sale.status '1' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Entregado</p></div>
+              <div id="confirmed"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
 
-            </p>
-         </div>
-      {% endifequal %}
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal sale.status '2' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled-deactive"><p>Cancelado</p></div>
+              <div id="confirmed"><p>Entregado</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
+
+           </p>
+        </div>
+     {% endifequal %}
+     {% ifequal sale.status '3' %}
+        <div id="panel-status">
+           <p>
+              <div id="canceled"><p>Cancelado</p></div>
+              <div id="confirmed-deactive"><p>Entregado</p></div>
+              <div id="confirmed-deactive"><p>Confirmado</p></div>
+              <div id="draft-deactive"><p>Borrador</p></div>
+
+           </p>
+        </div>
+     {% endifequal %}
 
 
 {% endblock %}

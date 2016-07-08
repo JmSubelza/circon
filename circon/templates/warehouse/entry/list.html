@@ -15,11 +15,11 @@
             <a href="{% url 'create_entry' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
         </p>
     </div>
-</div>      
+</div>
 {% endblock %}
 
 {% block list %}
-<div class="col-lg-12">                  
+<div class="col-lg-12">
       <div class="table-responsive">
           <table class="table table-hover table-striped">
               <thead>
@@ -27,6 +27,7 @@
                       <th>N°</th>
                       <th>Proveedor</th>
                       <th>Fecha</th>
+                      <th>Status</th>
                   </tr>
               </thead>
               <tbody>
@@ -36,11 +37,23 @@
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.n_purchase}}</a></td>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.provider}}</a></td>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.date_purchase}}</a></td>
+                        {% ifequal campo.status '0' %}
+                        <td><a href="{% url 'detail_entry' campo.pk %}">Borrador</a></td>
+                        {% endifequal %}
+                        {% ifequal campo.status '1' %}
+                        <td><a href="{% url 'detail_entry' campo.pk %}">Confirmado</a></td>
+                        {% endifequal %}
+                        {% ifequal campo.status '2' %}
+                        <td><a href="{% url 'detail_entry' campo.pk %}">Entregado</a></td>
+                        {% endifequal %}
+                        {% ifequal campo.status '3' %}
+                        <td><a href="{% url 'detail_entry' campo.pk %}">Cancelado</a></td>
+                        {% endifequal %}
                      </tr>
                   {% endfor %}
                {% else %}
                    <h3></h3>
-               {% endif %}   
+               {% endif %}
               </tbody>
           </table>
       </div>
