@@ -12,7 +12,7 @@ class Sale(models.Model):
     status = models.CharField(max_length=1, default='0', blank=True)
 
     # ficacion para el almacen 171
-    ambulances = models.ForeignKey('ambulances.Ambulances')
+    ambulances = models.ForeignKey('ambulances.Ambulances' ,blank=True, null=True)
 
     def __unicode__(self):
         return self.date_sale.strftime('%d-%m-%Y')

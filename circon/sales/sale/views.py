@@ -11,8 +11,10 @@ from django.core.urlresolvers import reverse_lazy
 from pure_pagination.mixins import PaginationMixin
 from .forms import SaleForm
 from .forms import SaleFormSet
+from .forms import SaleDetailForm
 from extra_views import UpdateWithInlinesView
 from extra_views import InlineFormSet
+from circon.warehouse.products.models import Products
 
 
 class ListSale(PaginationMixin, ListView):
@@ -79,6 +81,7 @@ class CreateSale(CreateView):
 
 class ItemInline(InlineFormSet):
     model = SaleDetail
+    form_class = SaleDetailForm
 
 
 class UpdateSale(UpdateWithInlinesView):
@@ -103,6 +106,12 @@ class Confirm(UpdateView):
     initial = {'status': '1'}
 
     def get_success_url(self):
+        id_products_sale = SaleDetail.objects.filter(relationship_id=self.object.pk)
+        for x in id_products_sale:
+            cant_products = Products.objects.filter(id=x.products_id)
+            for z in cant_products:
+                total = z.quantity - x.quantity
+                update = Products.objects.values('quantity').filter(id=x.products_id).update(quantity=total)
         return reverse('detail_sale', kwargs={'pk': self.object.pk})
 
 

@@ -46,52 +46,27 @@
                         <a href="{% url 'list_products' %}">Productos</a>
                         <a href="{% url 'list_category' %}">Categorias</a>
                         <a href="{% url 'list_ambulances' %}">Ambulancias</a>
-                        <a href="{% url 'list_units_measures' %}">Unidades de Medidas</a>
                         <a href="{% url 'list_request' %}">Solicitudes</a>
-                    </li>
-                      <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Inventario <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo">
-                            <li>
-                                <a href="{% url 'list_inventory' %}">General</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_oils' %}">Aceites</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_rubbers' %}">Cauchos</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_uniforms' %}">Uniformes</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_stationery' %}">Papeleria</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_tools' %}">Herramientas</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'list_suppliesmedical' %}">Insumos Medicos</a>
-                            </li>
-                        </ul>
+                        <a href="{% url 'list_inventory' %}">Inventario</a>
+                        <a href="{% url 'list_units_measures' %}">Unidades de Medidas</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
         {% block buttons %}
-        
+
         {% endblock %}
         {% block list %}
-        
+
         {% endblock %}
         <div id="page-wrapper">
-        
-          
+
+
         {% block form %}
-        
+
         {% endblock %}
-           
+
 
         </div>
         <!-- /#page-wrapper -->
@@ -102,11 +77,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "circon/js/bootstrap.min.js" %}"></script>
     <script src="{% static "circon/js/bootstrap.js" %}"></script>
-   
-    
+
+
     <script src="{% static "circon/js/bootstrap-datetimepicker.js" %}"></script>
     <script src="{% static "circon/js/bootstrap-datetimepicker.es.js" %}"></script>
-   
+
     <!-- Morris Charts JavaScript -->
     <script src="{% static "circon/js/plugins/morris/raphael.min.js" %}"></script>
     <script src="{% static "circon/js/plugins/morris/morris.min.js" %}"></script>

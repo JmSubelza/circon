@@ -9,5 +9,12 @@ class SaleForm(ModelForm):
         model = Sale
         fields = '__all__'
 
-SaleFormSet = inlineformset_factory(Sale, SaleDetail,
-                                    fields='__all__', extra=1)
+
+class SaleDetailForm(ModelForm):
+
+    class Meta:
+        model = SaleDetail
+        fields = '__all__'
+
+SaleFormSet = inlineformset_factory(Sale, SaleDetail, form=SaleDetailForm,
+                                    extra=2)
