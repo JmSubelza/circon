@@ -42,17 +42,17 @@ th {
     border-right:white 15px solid;
     border-left:white 30px solid;
     width: 120px;
-    
+
 }
 
 </style>
 <div id="container">
    <form action="." method="POST">
    {% csrf_token %}
-<!--#####row 1######--> 
+<!--#####row 1######-->
 <legend>Silicitud</legend>
         <table>
-       
+
             <br>
             <tr>
                 <th>N° Solicitud:</th>
@@ -86,10 +86,10 @@ th {
 <!--#####row 3######-->
         <table>
             <tr>
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= applicant {{ form.applicant }}</td>
 
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= status {{ form.status }}</td>
             </tr>
 
@@ -100,17 +100,17 @@ th {
             <label style="width: 140px;">Producto</label>
             <label style="width: 140px;">Cantidad</label>
             <!-- <label style="width: 150px;">Cant.Entrega</label> -->
-          
+
            {{ sale_form.management_form }}
            {{ sale_form.non_form_errors }}
            {% for form in sale_form %}
               {{ form.id }}
-              <div class="inline {{ sale_form.prefix }}">    
+              <div class="inline {{ sale_form.prefix }}">
                <br>
-                  <label><select  class="form-control" style='width: 140px;' {{ form.products }} </label>
-                  <label><input class="form-control" style='width: 140px;' {{ form.quan_request }} </label>
+                  <label><select  class="form-control" style='width: 140px;' {{ form.products }} &nbsp;</label>
+                  <label><input class="form-control" style='width: 140px;' {{ form.quan_request }} &nbsp;</label>
                   {% if field.is_hidden %}
-                   <label><input class="form-control" style='width: 140px;' {{ form.quantity }} </label>
+                   <label><input class="form-control" style='width: 140px;' {{ form.quantity }} &nbsp;</label> &nbsp;
                   {% endif %}
               </div>
            {% endfor %}
@@ -122,7 +122,7 @@ th {
          <button type="submit" class="btn btn-default">Guardar</button>
          </p>
          </center>
-     
+
    </form>
 </div>
 {% endblock %}

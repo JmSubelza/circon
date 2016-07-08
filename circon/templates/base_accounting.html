@@ -26,7 +26,7 @@
     <!-- Custom Fonts -->
     <link href="{% static "circon/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
 
-   
+
 
 </head>
 
@@ -44,33 +44,33 @@
                    <li>
                         <a href="{% url 'list_accountplan' %}">Plan de Cuentas</a>
                     </li>
-                    
+
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Libro Diarios <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo">
                             <li>
-                                <a href="{% url 'list_inventory' %}">General</a>
+                                <a href="#">General</a>
                             </li>
                             <li>
-                                <a href="{% url 'list_oils' %}">Mayor</a>
+                                <a href="#">Mayor</a>
                             </li>
                             <li>
-                                <a href="{% url 'list_rubbers' %}">Legal</a>
+                                <a href="#">Legal</a>
                             </li>
-                         </ul>   
+                         </ul>
                     </li>
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Estado Financiero <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo">
                             <li>
-                                <a href="{% url 'list_inventory' %}">Balance General</a>
+                                <a href="#">Balance General</a>
                             </li>
                             <li>
-                                <a href="{% url 'list_oils' %}">Balance de Comprobación</a>
+                                <a href="#">Balance de Comprobación</a>
                             </li>
                             <li>
-                                <a href="{% url 'list_rubbers' %}">Estado de Ganacia</a>
+                                <a href="#">Estado de Ganacia</a>
                             </li>
                         </ul>
                     </li>
@@ -78,18 +78,18 @@
             <!-- /.navbar-collapse -->
         </nav>
         {% block buttons %}
-        
+
         {% endblock %}
         {% block list %}
-        
+
         {% endblock %}
         <div id="page-wrapper">
-        
-          
+
+
         {% block form %}
-        
+
         {% endblock %}
-           
+
 
         </div>
         <!-- /#page-wrapper -->
@@ -104,11 +104,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "circon/js/bootstrap.min.js" %}"></script>
     <script src="{% static "circon/js/bootstrap.js" %}"></script>
-    
+
     <script src="{% static "circon/js/bootstrap-datetimepicker.js" %}"></script>
     <script src="{% static "circon/js/bootstrap-datetimepicker.es.js" %}"></script>
-   
-    
+
+
     <!--<script src="{% static "js/jquery-ui/jquery-ui.js" %}"</script>
     <script src="{% static "js/jquery-ui/jquery-ui.min.js" %}"</script>
     <script src="{% static "js/jquery-ui/jquery-ui.css" %}"</script>

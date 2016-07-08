@@ -17,4 +17,4 @@ class SaleDetailForm(ModelForm):
         fields = '__all__'
 
 SaleFormSet = inlineformset_factory(Sale, SaleDetail, form=SaleDetailForm,
-                                    extra=2)
+                                    extra=1)
