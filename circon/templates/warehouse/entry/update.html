@@ -42,47 +42,32 @@ th {
     border-right:white 15px solid;
     border-left:white 30px solid;
     width: 120px;
-    
+
 }
 
 </style>
 <div id="container">
    <form action="." method="POST">
    {% csrf_token %}
-<!--#####row 1######--> 
+<!--#####row 1######-->
         <table>
           <legend>Actualizar Ingreso</legend>
             <br>
             <tr>
                 <th>N° Ingreso:</th>
                 <td><input class="form-control" style="width:100px" name= n_purchase {{ form.n_purchase }}</td>
-            </tr>
-                <tr><td><br><br></td></tr>
-        </table>
-<!--#####row 2######-->
-        <table>
-            <tr>
                 <th>Proveedor:</th>
                 <td><select class="form-control" style="width:170px" name= provider {{ form.provider }}</td>
-
-                <th>Fecha:</th>
-                <td><div class="form-group" style="margin-top:15px;">
-                      <label for="dtp_input2" class="col-md-1 control-label"></label>
-                      <div class="input-group date form_date col-md-9" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                      <input class="form-control" size="16" name= date_purchase readonly {{ form.date_purchase}} <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-                </td>
             </tr>
-
                 <tr><td><br><br></td></tr>
         </table>
 <!--#####row 3######-->
         <table>
             <tr>
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= applicant {{ form.applicant }}</td>
 
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= status {{ form.status }}</td>
             </tr>
 
@@ -111,7 +96,7 @@ th {
          <button type="submit" class="btn btn-default">Guardar</button>
          </p>
          </center>
-     
+
    </form>
 </div>
 {% endblock %}

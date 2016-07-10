@@ -36,7 +36,7 @@
                      <tr>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.n_purchase}}</a></td>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.provider}}</a></td>
-                        <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.date_purchase}}</a></td>
+                        <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.date_create}}</a></td>
                         {% ifequal campo.status '0' %}
                         <td><a href="{% url 'detail_entry' campo.pk %}">Borrador</a></td>
                         {% endifequal %}

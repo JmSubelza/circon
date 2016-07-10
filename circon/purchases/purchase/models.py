@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Purchase(models.Model):
     date_create = models.DateField(auto_now_add=True)
     date_purchase = models.DateField()
-    n_purchase = models.CharField(max_length=10, blank=True)
+    n_purchase = models.AutoField(primary_key=True)
     provider = models.ForeignKey(User)
     applicant = models.CharField(max_length=100, blank=True)
     observation = models.TextField(max_length=250, blank=True)

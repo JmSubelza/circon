@@ -35,8 +35,8 @@
                   {% for campo in object_list %}
                      <tr>
                         <td><a href="{% url 'detail_request' campo.pk %}">{{campo.n_sale}}</a></td>
-                        <td><a href="{% url 'detail_request' campo.pk %}">{{campo.customer}}</a></td>
-                        <td><a href="{% url 'detail_request' campo.pk %}">{{campo.date_sale}}</a></td>
+                        <td><a href="{% url 'detail_request' campo.pk %}">{{campo.applicant}}</a></td>
+                        <td><a href="{% url 'detail_request' campo.pk %}">{{campo.date_create}}</a></td>
                         {% ifequal campo.status '0' %}
                         <td><a href="{% url 'detail_request' campo.pk %}">Borrador</a></td>
                         {% endifequal %}

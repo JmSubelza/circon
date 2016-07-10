@@ -15,7 +15,7 @@ from .forms import PurchaseFormSet
 from extra_views import UpdateWithInlinesView
 from extra_views import InlineFormSet
 from wkhtmltopdf.views import PDFTemplateView
-from circon.warehouse.products.models import Products
+# from circon.warehouse.products.models import Products
 
 
 class ListPurchase(PaginationMixin, ListView):
@@ -78,6 +78,11 @@ class CreatePurchase(CreateView):
     def form_invalid(self, form, purchase_form):
         return self.render_to_response(self.get_context_data(form=form,
                                        purchase_form=purchase_form,))
+
+    def get_context_data(self, **kwargs):
+        context = super(CreatePurchase, self).get_context_data(**kwargs)
+        context['purchase'] = self.object
+        return context
 
 
 class ItemInline(InlineFormSet):

@@ -105,36 +105,19 @@ th {
    <form action="." method="POST">
    {% csrf_token %}
 <!--#####row 1######-->
-        <table>
-          <legend>Salida</legend>
-            <br>
-            <tr>
-                <th>N° Salida:</th>
-                <td>{{ sale.n_sale }}</td>
-            </tr>
-                <tr><td><br><br></td></tr>
-        </table>
-<!--#####row 2######-->
-        <table>
-            <tr>
-                <th>Solicitante:</th>
-                <td>{{ sale.customer }}</td>
-
-                <th>Fecha:</th>
-                <td>{{ sale.date_sale }}</td>
-            </tr>
-
-                <tr><td><br><br></td></tr>
-        </table>
-<!--#####row 2######-->
-        <table>
-            <tr>
-                <th>Ambulancia:</th>
-                <td>{{ sale.ambulances }}</td>
-            </tr>
-
-                <tr><td><br><br></td></tr>
-        </table>
+          <table>
+            <legend>Solicitud</legend>
+              <br>
+              <tr>
+                  <th>N° Solicitud:</th>
+                  <td>{{ sale.n_sale }}</td>
+                  <th></th>
+                  <td></td>
+                  <th>Ambulancia:</th>
+                  <td>{{ sale.ambulances }}</td>
+              </tr>
+                  <tr><td><br><br></td></tr>
+          </table>
 <!--#################-->
  <div class="table-responsive">
           <table class="table table-hover table-striped">

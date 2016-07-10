@@ -42,23 +42,17 @@ th {
     border-right:white 15px solid;
     border-left:white 30px solid;
     width: 120px;
-    
+
 }
 
 </style>
 <div id="container">
    <form action="." method="POST">
    {% csrf_token %}
-<!--#####row 1######--> 
-        <table>
-          <legend>Registrar Venta (Facturar)</legend>
-            <br>
-            <tr>
-                <th>N° Factura:</th>
-                <td><input class="form-control" style="width:100px" name= n_sale {{ form.n_sale }}</td>
-            </tr>
-                <tr><td><br><br></td></tr>
-        </table>
+<!--#####row 1######-->
+
+    <legend>Registrar Venta (Facturar)</legend>
+
 <!--#####row 2######-->
         <table>
             <tr>
@@ -79,10 +73,10 @@ th {
 <!--#####row 3######-->
         <table>
             <tr>
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= applicant {{ form.applicant }}</td>
 
-                
+
                 <td><input class="form-control" type="hidden" style="width:170px" name= status {{ form.status }}</td>
             </tr>
 
@@ -115,7 +109,7 @@ th {
          <button type="submit" class="btn btn-default">Guardar</button>
          </p>
          </center>
-     
+
    </form>
 </div>
 {% endblock %}
