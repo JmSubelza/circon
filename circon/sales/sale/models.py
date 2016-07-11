@@ -4,18 +4,23 @@ from django.contrib.auth.models import User
 
 class Sale(models.Model):
     date_create = models.DateField(auto_now_add=True)
-    date_sale = models.DateField()
+    date_sale = models.DateField(null=True, blank=True)
     n_sale = models.AutoField(primary_key=True)
-    customer = models.ForeignKey(User)
+    customer = models.ForeignKey(User, null=True, blank=True)
     applicant = models.CharField(max_length=100, blank=True)
     observation = models.TextField(max_length=250, blank=True)
     status = models.CharField(max_length=1, default='0', blank=True)
 
     # ficacion para el almacen 171
-    ambulances = models.ForeignKey('ambulances.Ambulances' ,blank=True, null=True)
+    ambulances = models.ForeignKey('ambulances.Ambulances', blank=True, null=True)
 
     def __str__(self):
         return self.date_sale.strftime('%d-%m-%Y')
+
+    class Meta:
+        permissions = (
+                ("to_access_sale", "Puede acceder a ventas"),
+            )
 
 
 class SaleDetail(models.Model):

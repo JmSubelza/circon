@@ -104,7 +104,7 @@ class Confirm(UpdateView):
     initial = {'status': '1'}
 
     def get_success_url(self):
-        return reverse('detail_purchase', kwargs={'pk': self.object.pk})
+        return reverse('detail_entry', kwargs={'pk': self.object.pk})
 
 
 class Received(UpdateView):

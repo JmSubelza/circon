@@ -7,15 +7,10 @@
  <div id="panel-buttons">
     <div id="list-form">
         <p>
-        <a href="{% url 'list_users' %}"><button type="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-list"></span></button></a>
+        <a href="{% url 'list_permission' %}"><button type="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-list"></span></button></a>
         </p>
     </div>
-    <div id="buttons">
-        <p>
-            <a href="{% url 'create_user' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
-        </p>
-    </div>
-</div>      
+</div>
 {% endblock %}
 
 {% block list %}
@@ -39,7 +34,7 @@ th {
 <!--#####row 1######-->
         <table>
            {{ form.as_p }}
-   
+
 
         </table>
 <!--#################-->

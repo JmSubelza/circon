@@ -8,3 +8,8 @@ class AccountPlan(models.Model):
 
     def __unicode__(self):
         return self.description
+
+    class Meta:
+        permissions = (
+                ("to_access_accounting", "Puede acceder a contabilidad"),
+            )

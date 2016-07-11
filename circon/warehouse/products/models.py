@@ -19,3 +19,17 @@ class Products(models.Model):
 
     def __str__(self):
         return self.products
+
+    class Meta:
+        permissions = (
+                ("to_access_warehouse", "Puede acceder a almacen"),
+                ("add_entry", "Puede agregar entrada"),
+                ("update_entry", "Puede actualizar entrada"),
+                ("delete_entry", "Puede eliminar entrada"),
+                ("add_exit", "Puede agregar salida"),
+                ("update_exit", "Puede actualizar salida"),
+                ("delete_exit", "Puede eliminar salida"),
+                ("to_access_inventory", "Puede acceder a inventario"),
+                ("to_access_request", "Puede acceder a solicitudes"),
+                ("to_access_search", "Puede acceder a busquedas"),
+            )

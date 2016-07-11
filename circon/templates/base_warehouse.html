@@ -41,11 +41,17 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                    <li>
-                        {% if perms.sessions.add_session %}
+                        {% if perms.products.add_entry %}
                         <a href="{% url 'list_entry' %}">Entrada</a>
                         {% endif %}
-                        {% if perms.default.add_nonce %}
+                        {% if perms.products.add_exit %}
                         <a href="{% url 'list_exit' %}">Salida</a>
+                        {% endif %}
+                        {% if perms.products.to_access_inventory %}
+                        <a href="{% url 'list_inventory' %}">Inventario</a>
+                        {% endif %}
+                        {% if perms.ambulances.add_ambulances %}
+                        <a href="{% url 'list_ambulances' %}">Ambulancias</a>
                         {% endif %}
                         {% if perms.products.add_products %}
                         <a href="{% url 'list_products' %}">Productos</a>
@@ -53,17 +59,11 @@
                         {% if perms.category.add_category %}
                         <a href="{% url 'list_category' %}">Categorias</a>
                         {% endif %}
-                        {% if perms.ambulances.add_ambulances %}
-                        <a href="{% url 'list_ambulances' %}">Ambulancias</a>
-                        {% endif %}
-                        {% if perms.default.add_association %}
-                        <a href="{% url 'list_request' %}">Solicitudes</a>
-                        {% endif %}
-                        {% if perms.registration.add_registrationprofile %}
-                        <a href="{% url 'list_inventory' %}">Inventario</a>
-                        {% endif %}
                         {% if perms.units_measures.add_unitsmeasures %}
                         <a href="{% url 'list_units_measures' %}">Unidades de Medidas</a>
+                        {% endif %}
+                        {% if perms.products.to_access_request %}
+                        <a href="{% url 'list_request' %}">Solicitudes</a>
                         {% endif %}
                     </li>
                 </ul>

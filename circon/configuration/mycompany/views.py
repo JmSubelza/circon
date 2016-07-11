@@ -25,33 +25,9 @@ class DetailMyCompany(DetailView):
 
 
 class CreateMyCompany(CreateView):
-    model = MyCompany
     form_class = CreateForm
-    initial = {'key': 'value'}
     template_name = 'configuration/mycompany/create.html'
-
-    def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            address = form.cleaned_data['address']
-            phone = form.cleaned_data['phone']
-            rif = form.cleaned_data['rif']
-            p = MyCompany()
-            p.name = name
-            p.email = email
-            p.address = address
-            p.phone = phone
-            p.rif = rif
-            p.save()
-            return HttpResponseRedirect('/List_MyCompany')
-
-        return render(request, self.template_name, {'form': form})
+    success_url = reverse_lazy('list_mycompany')
 
 
 class UpdateMyCompany(UpdateView):

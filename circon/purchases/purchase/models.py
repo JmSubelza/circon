@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Purchase(models.Model):
     date_create = models.DateField(auto_now_add=True)
-    date_purchase = models.DateField()
+    date_purchase = models.DateField(null=True, blank=True)
     n_purchase = models.AutoField(primary_key=True)
     provider = models.ForeignKey(User)
     applicant = models.CharField(max_length=100, blank=True)
@@ -19,6 +19,11 @@ class Purchase(models.Model):
 
     def __str__(self):
         return self.date_purchase.strftime('%d-%m-%Y')
+
+    class Meta:
+        permissions = (
+                ("to_access_purchase", "Puede acceder a compras"),
+            )
 
 
 class PurchaseDetail(models.Model):
