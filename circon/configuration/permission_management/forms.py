@@ -14,7 +14,7 @@ class CreateForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateForm, self).__init__(*args, **kwargs)
         self.fields["user_permissions"].widget = CheckboxSelectMultiple()
-        self.fields["user_permissions"].queryset = Permission.objects.filter(content_type_id__in=[7,12,13,14,15,16,17,18,19,20])
+        self.fields["user_permissions"].queryset = Permission.objects.filter(content_type_id__in=[7, 12, 13, 14, 15, 16, 18, 20])
 
         self.fields["groups"].widget = CheckboxSelectMultiple()
         self.fields["groups"].queryset = Group.objects.all()

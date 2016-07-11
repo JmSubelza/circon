@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^', include('circon.configuration.backup.urls')),
     url(r'^', include('circon.configuration.authenticate.urls')),
     url(r'^', include('circon.configuration.permission_management.urls')),
+    url(r'^', include('circon.configuration.translation.urls')),
     url(r'^', include('social.apps.django_app.urls', namespace='social')),
 
     # Warehouse
