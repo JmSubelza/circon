@@ -1,5 +1,5 @@
 from django.contrib import admin
-from circon.warehouse.category.models import Category
+from .models import Category
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 

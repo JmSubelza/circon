@@ -1,4 +1,16 @@
 from django.contrib import admin
-from circon.warehouse.products.models import Products
+from .models import Products
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
-admin.site.register(Products)
+
+class ProductsResource(resources.ModelResource):
+
+    class Meta:
+        model = Products
+
+
+class ProductsAdmin(ImportExportModelAdmin):
+    resource_class = ProductsResource
+
+admin.site.register(Products, ProductsAdmin)

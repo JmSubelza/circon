@@ -49,7 +49,7 @@ th {
 <div id="container">
    <form action="." method="POST">
    {% csrf_token %}
-<!--#####row 1######--> 
+<!--#####row 1######-->
     <legend>Registrar Compra</legend>
 
 <!--#####row 2######-->
@@ -93,10 +93,10 @@ th {
                       {{ form.management_form }}
                       {{ subform.id }}
                           <p><label style="width: 60px;">{{ forloop.counter }}</label>
-                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}</label>
-                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }}</select></label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }}</label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }}</label>
+                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }} &nbsp;</label>
+                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} &nbsp;</select></label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }} &nbsp;</label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }} &nbsp;</label>
                          </p>
                   {% endfor %}
               {% endfor %}
