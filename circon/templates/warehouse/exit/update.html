@@ -26,11 +26,11 @@ webshims.polyfill('forms forms-ext');
         <a href="{% url 'list_exit' %}"><button type="button" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-list"></span></button></a>
         </p>
     </div>
-    <div id="buttons">
+    <!-- <div id="buttons">
         <p>
             <a href="{% url 'create_exit' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
         </p>
-    </div>
+    </div> -->
 </div>
 
 {% endblock %}
@@ -55,6 +55,7 @@ th {
             <br>
             <tr>
               <th>Ambulacia:</th>
+
               <td><select class="form-control" style="width:170px" name= ambulances {{ form.ambulances }}</td>
             </tr>
                 <tr><td><br><br></td></tr>
@@ -83,9 +84,8 @@ th {
                       {{ subform.id }}
                           <p><label style="width: 60px;">{{ forloop.counter }}</label>
                             <label><select class="form-control" style='width: 150px;' {{ subform.products }} </label>
-
                             <label><input  class="form-control" style="width: 150px;" {{ subform.quan_request }} </label>
-                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }}</select></label>
+                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }}</label>
                          </p>
                   {% endfor %}
               {% endfor %}

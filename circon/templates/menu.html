@@ -6,20 +6,20 @@
         <span class="icon-bar"></span>
     </button>
    {% if perms.purchase.to_access_purchase %}
-	 <a class="navbar-brand" href="{% url 'list_purchase' %}">Compras</a>
+	 <a class="navbar-brand" href="{% url 'start_purchases' %}">Compras</a>
    {% endif %}
    {% if perms.products.to_access_warehouse %}
-	 <a class="navbar-brand" href="{% url 'list_request' %}">Almacén</a>
+	 <a class="navbar-brand" href="{% url 'start_warehouse' %}">Almacén</a>
    {% endif %}
    {% if perms.sale.to_access_sale %}
-	 <a class="navbar-brand" href="{% url 'list_sale' %}">Ventas</a>
+	 <a class="navbar-brand" href="{% url 'start_sales' %}">Ventas</a>
    {% endif %}
    {% if perms.accountplan.to_access_accounting %}
-	 <a class="navbar-brand" href="{% url 'list_accountplan' %}">Contabilidad</a>
+	 <a class="navbar-brand" href="{% url 'start_accounting' %}">Contabilidad</a>
    {% endif %}
 	 {# <a class="navbar-brand" href="{% url 'index_view' %}">Sitio Web</a> #}
    {% if user.is_superuser %}
-	 <a class="navbar-brand" href="{% url 'list_users' %}">Configuración</a>
+	 <a class="navbar-brand" href="{% url 'start_configuration' %}">Configuración</a>
    {% endif %}
 	 </div>
 <!-- Top Menu Items -->

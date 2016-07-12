@@ -29,8 +29,12 @@ webshims.polyfill('forms forms-ext');
     <div id="buttons">
         <p>
             <a href="{% url 'create_request' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Crear</button></a>
+            {% ifequal sale.status '0' %}
             <a href="{% url 'update_request' sale.pk %}"><button type="button" class="btn btn-success">Modificar</button></a>
+            {% endifequal %}
+            {% if user.is_staff %}
             <a href="{% url 'delete_request' sale.pk %}"><button type="button" class="btn btn-danger">Eliminar</button></a>
+            {% endif %}
             {% ifequal sale.status '0' %}
             <a href="{% url 'confirm_request' sale.pk %}"><button type="button" class="btn btn-primary">Confirmar</button></a>
             {% endifequal %}
