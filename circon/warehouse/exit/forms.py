@@ -11,6 +11,19 @@ class SaleForm(forms.ModelForm):
         model = Sale
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super(SaleForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            self.fields['ambulances'].widget.attrs['readonly'] = True
+
+    def clean_ambulances(self):
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            return instance.ambulances
+        else:
+            return self.cleaned_data['ambulances']
+
 
 class SaleDetailForm(forms.ModelForm):
 

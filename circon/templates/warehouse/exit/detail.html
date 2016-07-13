@@ -138,7 +138,7 @@ th {
                <fieldset>
                </thead>
                <legend>Detalle de Productos</legend>
-                  {% for campo in page_obj reversed %}
+                  {% for campo in page_obj %}
                      <tr>
                         <td style="width: 60px;">{{ forloop.counter }}</td>
                         <td style="width: 150px;">{{ campo.products }}</td>

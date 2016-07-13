@@ -91,6 +91,11 @@ class UpdateExit(UpdateWithInlinesView):
     model = Sale
     inlines = [ItemInline]
 
+    def get_context_data(self, **kwargs):
+        context = super(UpdateExit, self).get_context_data(**kwargs)
+        context['ambulances'] = Sale.objects.filter(n_sale=self.object.pk)
+        return context
+
     def get_success_url(self):
         return reverse('detail_exit', kwargs={'pk': self.object.pk})
 
