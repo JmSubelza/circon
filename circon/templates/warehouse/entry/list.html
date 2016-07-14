@@ -32,7 +32,7 @@
               </thead>
               <tbody>
                {% if object_list %}
-                  {% for campo in object_list %}
+                  {% for campo in object_list reversed %}
                      <tr>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.n_purchase}}</a></td>
                         <td><a href="{% url 'detail_entry' campo.pk %}">{{campo.provider}}</a></td>

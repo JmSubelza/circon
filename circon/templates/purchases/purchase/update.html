@@ -8,7 +8,7 @@
 <!-- <script src="{% static "circon/js/jquery-1.3.2.min.js" %}"></script> -->
 <script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script>
 <script src="{% static "circon/js/jquery.formset.js" %}"></script>
-<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script> -->
 <script>
    $(function() {
             $(".inline.{{ purchase_form.prefix }}").formset({
@@ -18,8 +18,6 @@
 webshims.setOptions('forms-ext', {types: 'date'});
 webshims.polyfill('forms forms-ext');
 </script>
-
-
  <div id="panel-buttons">
     <div id="list-form">
         <p>
@@ -92,12 +90,15 @@ th {
                   {% for subform in form %}
                       {{ form.management_form }}
                       {{ subform.id }}
+                      <div class="inline {{ purchase_form.prefix }}">
                           <p><label style="width: 60px;">{{ forloop.counter }}</label>
-                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }} &nbsp;</label>
-                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} &nbsp;</select></label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }} &nbsp;</label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }} &nbsp;</label>
+                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}</label>
+                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} </select></label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }} </label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }} </label>
                          </p>
+                      </div>
+
                   {% endfor %}
               {% endfor %}
          </fieldset>
