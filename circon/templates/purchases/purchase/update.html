@@ -5,18 +5,14 @@
 {% block javascript %}
 {% endblock %}
 {% block buttons %}
-<!-- <script src="{% static "circon/js/jquery-1.3.2.min.js" %}"></script> -->
 <script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script>
 <script src="{% static "circon/js/jquery.formset.js" %}"></script>
-<!-- <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script> -->
 <script>
    $(function() {
-            $(".inline.{{ purchase_form.prefix }}").formset({
-                prefix: "{{ purchase_form.prefix }}",
+            $(".inline{{ update_form.prefix }}").formset({
+                prefix: "{{ update_form.prefix }}",
             })
         })
-webshims.setOptions('forms-ext', {types: 'date'});
-webshims.polyfill('forms forms-ext');
 </script>
  <div id="panel-buttons">
     <div id="list-form">
@@ -81,23 +77,29 @@ th {
 <!--#################-->
          <legend>Detalle Productos</legend>
          <fieldset style="border-left:white 30px solid;">
+
             <label style="width: 66px;">Item</label>
             <label style="width: 150px;">Producto</label>
             <label style="width: 150px;">Cantidad</label>
             <label style="width: 130px;">Precio</label>
             <label style="width: 130px;">Total</label>
+
+
               {% for form in inlines %}
                   {% for subform in form %}
                       {{ form.management_form }}
                       {{ subform.id }}
-                      <div class="inline {{ purchase_form.prefix }}">
+
                           <p><label style="width: 60px;">{{ forloop.counter }}</label>
+                            <div class="inline {{ update_form.prefix }}">
+
                             <label><select  class="form-control" style='width: 150px;' {{ subform.products }}</label>
                             <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} </select></label>
                             <label><input  class="form-control" style='width: 130px;' {{ subform.price }} </label>
                             <label><input  class="form-control" style='width: 130px;' {{ subform.total }} </label>
+
                          </p>
-                      </div>
+                       </div>
 
                   {% endfor %}
               {% endfor %}

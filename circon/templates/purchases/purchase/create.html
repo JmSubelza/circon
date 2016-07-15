@@ -8,7 +8,7 @@
 
 <script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script>
 <script src="{% static "circon/js/jquery.formset.js" %}"></script>
-<!-- <script src="{% static "circon/angular/angular.min.js" %}"></script> -->
+<script src="{% static "circon/angular/angular.min.js" %}"></script>
 <script>
    $(function() {
             $(".inline.{{ purchase_form.prefix }}").formset({
@@ -16,6 +16,10 @@
             })
         })
 </script>
+
+
+
+
  <div id="panel-buttons">
     <div id="list-form">
         <p>
