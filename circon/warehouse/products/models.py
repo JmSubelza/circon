@@ -1,4 +1,6 @@
 from django.db import models
+from audit_log.models.fields import LastUserField
+from audit_log.models.managers import AuditLog
 
 
 def content_file_products(instance, filename):
@@ -16,6 +18,8 @@ class Products(models.Model):
     category = models.ForeignKey('category.Category')
     image = models.ImageField(upload_to=content_file_products, blank=True)
     active = models.BooleanField(default=True)
+
+    audit_log = AuditLog()
 
     def __str__(self):
         return self.products

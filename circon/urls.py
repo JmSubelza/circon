@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^', include('circon.configuration.groups.urls')),
     url(r'^', include('circon.configuration.mycompany.urls')),
     url(r'^', include('circon.configuration.backup.urls')),
+    url(r'^', include('circon.configuration.logs.urls')),
     url(r'^', include('circon.configuration.authenticate.urls')),
     url(r'^', include('circon.configuration.permission_management.urls')),
     url(r'^', include('circon.configuration.translation.urls')),
