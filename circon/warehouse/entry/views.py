@@ -80,7 +80,7 @@ class CreateEntry(CreateView):
 
 class ItemInline(InlineFormSet):
     model = PurchaseDetail
-
+    extra = 0
 
 class UpdateEntry(UpdateWithInlinesView):
     template_name = 'warehouse/entry/update.html'

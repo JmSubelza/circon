@@ -82,6 +82,7 @@ class CreateSale(CreateView):
 class ItemInline(InlineFormSet):
     model = SaleDetail
     form_class = SaleDetailForm
+    extra = 3
 
 
 class UpdateSale(UpdateWithInlinesView):

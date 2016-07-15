@@ -93,12 +93,11 @@ th {
            {% for form in purchase_form %}
               {{ form.id }}
               <div class="inline {{ purchase_form.prefix }}">
-               <br>
                   <label><select  class="form-control" style='width: 154px;' {{ form.products }} &nbsp;</label>
                   <label><input class="form-control" style='width: 154px;' {{ form.quantity }} &nbsp;</label>
                   <label><input class="form-control" style='width: 154px;' {{ form.price }} &nbsp;</label>
                   <label><input class="form-control" style='width: 154px;' {{ form.total_product }} &nbsp;</label> &nbsp;
-            </div>
+              </div>
            {% endfor %}
            </fieldset>
               <div>

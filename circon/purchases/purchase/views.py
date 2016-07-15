@@ -88,6 +88,7 @@ class CreatePurchase(CreateView):
 class ItemInline(InlineFormSet):
     model = PurchaseDetail
     form_class = PurchaseDetailForm
+    extra = 3
 
 
 class UpdatePurchase(UpdateWithInlinesView):

@@ -5,7 +5,7 @@
 {% block javascript %}
 {% endblock %}
 {% block buttons %}
-<script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script>
+<!-- <script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script> -->
 <script src="{% static "circon/js/jquery.formset.js" %}"></script>
 <script>
    $(function() {
@@ -77,29 +77,22 @@ th {
 <!--#################-->
          <legend>Detalle Productos</legend>
          <fieldset style="border-left:white 30px solid;">
-
-            <label style="width: 66px;">Item</label>
+            <!-- <label style="width: 66px;">Item</label> -->
             <label style="width: 150px;">Producto</label>
             <label style="width: 150px;">Cantidad</label>
             <label style="width: 130px;">Precio</label>
             <label style="width: 130px;">Total</label>
-
-
               {% for form in inlines %}
                   {% for subform in form %}
                       {{ form.management_form }}
                       {{ subform.id }}
-
-                          <p><label style="width: 60px;">{{ forloop.counter }}</label>
-                            <div class="inline {{ update_form.prefix }}">
-
-                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}</label>
-                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} </select></label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }} </label>
-                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }} </label>
-
-                         </p>
-                       </div>
+                          <p>
+                            <!-- <label style="width: 60px;">{{ forloop.counter }}</label> -->
+                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}&nbsp;</label>
+                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }} &nbsp;</label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.price }} &nbsp;</label>
+                            <label><input  class="form-control" style='width: 130px;' {{ subform.total }} &nbsp;</label>&nbsp;
+                          </p>
 
                   {% endfor %}
               {% endfor %}

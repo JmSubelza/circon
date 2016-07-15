@@ -6,7 +6,7 @@
 {% endblock %}
 {% block buttons %}
 <!-- <script src="{% static "circon/js/jquery-1.3.2.min.js" %}"></script> -->
-<script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script>
+<!-- <script src="{% static "circon/js/jquery-1.11.3.min.js" %}"></script> -->
 <script src="{% static "circon/js/jquery.formset.js" %}"></script>
 <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
 <script>
@@ -74,7 +74,7 @@ th {
 <!--#################-->
          <legend>Detalle Productos</legend>
          <fieldset style="border-left:white 30px solid;">
-            <label style="width: 66px;">Item</label>
+            <!-- <label style="width: 66px;">Item</label> -->
             <label style="width: 145px;">Producto</label>
             <label style="width: 150px;">Cant.Solicit</label>
             <!-- <label style="width: 150px;">Cant.Entrega</label> -->
@@ -82,14 +82,13 @@ th {
                   {% for subform in form %}
                       {{ form.management_form }}
                       {{ subform.id }}
-                          <p><label style="width: 60px;">{{ forloop.counter }}</label>
-                            <label><select class="form-control" style='width: 150px;' {{ subform.products }} </label>
-
-                            <label><input  class="form-control" style="width: 150px;" {{ subform.quan_request }} </label>
+                          <p>
+                            <!-- <label style="width: 60px;">{{ forloop.counter }}</label> -->
+                            <label><select class="form-control" style='width: 150px;' {{ subform.products }}&nbsp; </label>
+                            <label><input  class="form-control" style="width: 150px;" {{ subform.quan_request }}&nbsp; </label>
                             {% if field.is_hidden %}
-                            <label><input class="form-control" style='width: 140px;' {{ form.quantity }} </label>
+                            <label><input class="form-control" style='width: 140px;' {{ form.quantity }}&nbsp; </label>
                             {% endif %}
-
                          </p>
                   {% endfor %}
               {% endfor %}

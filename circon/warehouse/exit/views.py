@@ -84,6 +84,7 @@ class CreateExit(CreateView):
 class ItemInline(InlineFormSet):
     model = SaleDetail
     form_class = SaleDetailForm
+    extra = 0
 
 
 class UpdateExit(UpdateWithInlinesView):
