@@ -21,6 +21,7 @@ class ListExit(PaginationMixin, ListView):
     template_name = 'warehouse/exit/list.html'
     model = Sale
     paginate_by = 10
+    ordering = '-pk'
 
 
 class DetailExitDetail(SingleObjectMixin, ListView):

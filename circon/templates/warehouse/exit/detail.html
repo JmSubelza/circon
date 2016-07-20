@@ -35,9 +35,11 @@ webshims.polyfill('forms forms-ext');
             {% if user.is_staff %}
             <a href="{% url 'delete_exit' sale.pk %}"><button type="button" class="btn btn-danger">Eliminar</button></a>
             {% endif %}
+            {% if user.is_staff %}
             {% ifequal sale.status '0' %}
             <a href="{% url 'confirm_exit' sale.pk %}"><button type="button" class="btn btn-primary">Confirmar</button></a>
             {% endifequal %}
+            {% endif %}
             {% ifequal sale.status '1' %}
             <a href="{% url 'delivered_exit' sale.pk %}"><button type="button" class="btn btn-primary">Entregar</button></a>
             {% endifequal %}
