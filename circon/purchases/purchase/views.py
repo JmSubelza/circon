@@ -22,6 +22,7 @@ class ListPurchase(PaginationMixin, ListView):
     template_name = 'purchases/purchase/list.html'
     model = Purchase
     paginate_by = 10
+    ordering = '-pk'
 
 
 class DetailPurchaseDetail(SingleObjectMixin, ListView):

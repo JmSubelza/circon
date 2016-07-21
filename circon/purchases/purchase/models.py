@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from audit_log.models.fields import LastUserField
+from audit_log.models.managers import AuditLog
 
 
 class Purchase(models.Model):
@@ -16,6 +18,8 @@ class Purchase(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2, null=True,
                                 blank=True)
     status = models.CharField(max_length=1, default='0', blank=True)
+
+    audit_log = AuditLog()
 
     def __str__(self):
         return self.date_purchase.strftime('%d-%m-%Y')
@@ -35,3 +39,4 @@ class PurchaseDetail(models.Model):
                                 blank=True)
     total_product = models.DecimalField(max_digits=10, decimal_places=2,
                                         null=True, blank=True)
+    audit_log = AuditLog()

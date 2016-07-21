@@ -21,6 +21,7 @@ class ListSale(PaginationMixin, ListView):
     template_name = 'sales/sale/list.html'
     model = Sale
     paginate_by = 10
+    ordering = '-pk'
 
 
 class DetailSaleDetail(SingleObjectMixin, ListView):
