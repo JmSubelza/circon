@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from audit_log.models.fields import LastUserField
+from audit_log.models.managers import AuditLog
 
 
 class Sale(models.Model):
@@ -11,6 +13,7 @@ class Sale(models.Model):
     observation = models.TextField(max_length=250, blank=True)
     status = models.CharField(max_length=1, default='0', blank=True)
 
+    audit_log = AuditLog()
     # ficacion para el almacen 171
     ambulances = models.ForeignKey('ambulances.Ambulances', blank=True, null=True)
 
@@ -32,6 +35,7 @@ class SaleDetail(models.Model):
                                 blank=True)
     total = models.DecimalField(max_digits=10, decimal_places=2, null=True,
                                 blank=True)
+    audit_log = AuditLog()
     # Modificacion para el almacen 171
     quan_request = models.DecimalField(max_digits=10, decimal_places=2,
                                        null=True, blank=True)

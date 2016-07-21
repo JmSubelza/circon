@@ -20,6 +20,7 @@ class ListRequest(PaginationMixin, ListView):
     template_name = 'warehouse/request/list.html'
     model = Sale
     paginate_by = 10
+    ordering = '-pk'
 
 
 class DetailRequestDetail(SingleObjectMixin, ListView):
