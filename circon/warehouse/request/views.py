@@ -23,7 +23,7 @@ class ListRequest(PaginationMixin, ListView):
     ordering = '-pk'
 
 
-class DetailRequestDetail(SingleObjectMixin, ListView):
+class DetailRequestDetail(PaginationMixin, SingleObjectMixin, ListView):
     template_name = 'warehouse/request/detail.html'
     paginate_by = 10
 

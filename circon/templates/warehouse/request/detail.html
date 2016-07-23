@@ -132,7 +132,7 @@ th {
                <fieldset>
                </thead>
                <legend>Detalle de Productos</legend>
-                  {% for campo in page_obj %}
+                  {% for campo in object_list %}
                      <tr>
                         <td style="width: 60px;">{{ forloop.counter }}</td>
                         <td style="width: 150px;">{{ campo.products }}</td>
@@ -144,8 +144,13 @@ th {
               </tbody>
           </table>
       </div>
+      <center>
+      {% include "_pagination.html" %}
+      </center>
   </div>
+
   </table>
   </form>
 </div>
+
 {% endblock %}
