@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     'circon.warehouse.products',
     'circon.warehouse.category',
     'circon.warehouse.ambulances',
+    'dal',
+    'dal_select2',
 
     # Purchases
     'circon.purchases.purchase',

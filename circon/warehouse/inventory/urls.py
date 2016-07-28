@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 from .views import Inventory
 from .views import SearchCategory
+from .views import ProductsAutocomplete
 
 
 urlpatterns = patterns(' ',
@@ -8,4 +9,6 @@ urlpatterns = patterns(' ',
                            name='list_inventory'),
                        url(r'^SearchCategory/(?P<pk>[0-9]+)/$', SearchCategory.as_view(),
                            name='search_category'),
+                       url(r'^products-autocomplete/$', ProductsAutocomplete.as_view(),
+                           name='products-autocomplete'),
                        )

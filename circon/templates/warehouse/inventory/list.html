@@ -5,9 +5,15 @@
 {% block javascript %}{% endblock %}
 {% block buttons %}
  <div id="panel-buttons">
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+{{ form.media }}
     <div id="list-form">
-        <p>
-
+        </p>
+          <form action="" method="post">
+              {% csrf_token %}
+              {{ form.products }}
+          <button type="submit" class="btn btn-default" value="Search">Buscar</button>
+          </form>
         </p>
     </div>
     <div id="buttons">
@@ -19,6 +25,7 @@
             {% endfor %}
           </select>
         </p>
+
     </div>
 </div>
 {% endblock %}

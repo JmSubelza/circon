@@ -5,6 +5,12 @@
     padding-top: 30px;
 }
 
+#list-form > form {
+    float:right;
+    margin-right: 2%;
+    padding-top: 33px;
+}
+
 
 #container {
     width: 100%;
@@ -81,7 +87,7 @@ ul.errorlist {
     background-color:#337ab7;
     width: 125px;
     height: 100%;
-   
+
 }
 #draft > p{
     margin-top: 5px;
@@ -95,8 +101,8 @@ ul.errorlist {
     background-color:#ccc;
     width: 125px;
     height: 100%;
-   
-    
+
+
 }
 #draft-deactive > p{
     margin-top: 5px;
@@ -110,8 +116,8 @@ ul.errorlist {
     background-color:#337ab7;
     width: 125px;
     height: 100%;
-    
-    
+
+
 }
 
 #confirmed > p{
@@ -126,7 +132,7 @@ ul.errorlist {
     background-color:silver;
     width: 125px;
     height: 100%;
-    
+
 }
 
 #confirmed-deactive > p{
@@ -141,8 +147,8 @@ ul.errorlist {
     background-color:#d9534f;
     width: 125px;
     height: 100%;
-    
-    
+
+
 }
 
 #canceled > p{
@@ -157,7 +163,7 @@ ul.errorlist {
     background-color:silver;
     width: 125px;
     height: 100%;
-    
+
 }
 
 #canceled-deactive > p{
@@ -165,4 +171,3 @@ ul.errorlist {
     margin-left: 20%;
     color: #696969;
 }
-
