@@ -126,7 +126,8 @@ th {
                <tr>
                   <td><label style="width: 66px;">Item</label></td>
                   <td><label style="width: 150px;">Producto</label></td>
-                  <td><label style="width: 150px;">Cantidad</label></td>
+                  <td><label style="width: 150px;">Cant.Comprada</label></td>
+                  <td><label style="width: 150px;">Cant.Recibida</label></td>
                </tr>
                <fieldset>
                </thead>
@@ -135,6 +136,7 @@ th {
                      <tr>
                         <td style="width: 60px;">{{ forloop.counter }}</td>
                         <td style="width: 150px;">{{ campo.products }}</td>
+                        <td style="width: 150px;">{{ campo.quan_purchase }}</td>
                         <td style="width: 150px;">{{ campo.quantity }}</td>
                      </tr>
                   {% endfor %}
