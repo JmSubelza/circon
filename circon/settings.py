@@ -53,7 +53,6 @@ INSTALLED_APPS = (
     'circon.warehouse.units_measures',
     'circon.warehouse.products',
     'circon.warehouse.category',
-    'circon.warehouse.ambulances',
     'dal',
     'dal_select2',
 

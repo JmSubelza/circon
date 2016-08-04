@@ -5,7 +5,6 @@ from .views import LogsEntry
 from .views import LogsEntryDetail
 from .views import LogsExit
 from .views import LogsExitDetail
-from .views import LogsAmbulances
 from .views import LogsUnitsMeasures
 from .views import LogsRequest
 from .views import LogsCategory
@@ -24,8 +23,6 @@ urlpatterns = patterns('',
                            name='logs_exit'),
                        url(r'^LogsExitDetail', LogsExitDetail.as_view(),
                            name='logs_exitdetail'),
-                       url(r'^LogsAmbulances$', LogsAmbulances.as_view(),
-                           name='logs_ambulances'),
                        url(r'^LogsUnitsMeasures$', LogsUnitsMeasures.as_view(),
                            name='logs_unitsmeasures'),
                        url(r'^LogsRequest$', LogsRequest.as_view(),
