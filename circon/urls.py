@@ -42,7 +42,6 @@ urlpatterns = [
     url(r'^', include('circon.warehouse.category.urls')),
     url(r'^', include('circon.warehouse.entry.urls')),
     url(r'^', include('circon.warehouse.exit.urls')),
-    url(r'^', include('circon.warehouse.ambulances.urls')),
     url(r'^', include('circon.warehouse.request.urls')),
 
     # Purchases

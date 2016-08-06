@@ -94,7 +94,10 @@ th {
               {{ form.id }}
               <div class="inline {{ purchase_form.prefix }}">
                   <label><select  class="form-control" style='width: 154px;' {{ form.products }} &nbsp;</label>
-                  <label><input class="form-control" style='width: 154px;' {{ form.quantity }} &nbsp;</label>
+                  <label><input class="form-control" style='width: 140px;' {{ form.quan_purchase }} &nbsp;</label>
+                  {% if field.is_hidden %}
+                      <label><input class="form-control" style='width: 140px;' {{ form.quantity }} &nbsp;</label> &nbsp;
+                  {% endif %}
                   <label><input class="form-control" style='width: 154px;' {{ form.price }} &nbsp;</label>
                   <label><input class="form-control" style='width: 154px;' {{ form.total_product }} &nbsp;</label> &nbsp;
               </div>

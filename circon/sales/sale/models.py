@@ -14,8 +14,6 @@ class Sale(models.Model):
     status = models.CharField(max_length=1, default='0', blank=True)
 
     audit_log = AuditLog()
-    # ficacion para el almacen 171
-    ambulances = models.ForeignKey('ambulances.Ambulances', blank=True, null=True)
 
     def __str__(self):
         return self.date_sale.strftime('%d-%m-%Y')

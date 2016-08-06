@@ -9,8 +9,8 @@ from django.views.generic.edit import DeleteView
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from pure_pagination.mixins import PaginationMixin
-from circon.purchases.purchase.forms import PurchaseForm
-from circon.purchases.purchase.forms import PurchaseFormSet
+from .forms import PurchaseForm
+from .forms import PurchaseDetailForm
 from extra_views import UpdateWithInlinesView, InlineFormSet
 from circon.warehouse.products.models import Products
 
@@ -81,7 +81,9 @@ class CreateEntry(CreateView):
 
 class ItemInline(InlineFormSet):
     model = PurchaseDetail
+    form_class = PurchaseDetailForm
     extra = 0
+
 
 class UpdateEntry(UpdateWithInlinesView):
     template_name = 'warehouse/entry/update.html'

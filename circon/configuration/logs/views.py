@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 from pure_pagination.mixins import PaginationMixin
 from circon.warehouse.products.models import Products
 from circon.warehouse.category.models import Category
-from circon.warehouse.ambulances.models import Ambulances
 from circon.warehouse.units_measures.models import UnitsMeasures
 from circon.sales.sale.models import Sale
 from circon.sales.sale.models import SaleDetail
@@ -49,12 +48,6 @@ class LogsExitDetail(PaginationMixin, ListView):
 class LogsRequest(PaginationMixin, ListView):
     template_name = 'configuration/logs/logsrequest.html'
     queryset = SaleDetail.audit_log.all()
-    paginate_by = 10
-
-
-class LogsAmbulances(PaginationMixin, ListView):
-    template_name = 'configuration/logs/logsambulances.html'
-    queryset = Ambulances.audit_log.all()
     paginate_by = 10
 
 

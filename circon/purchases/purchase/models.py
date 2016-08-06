@@ -39,4 +39,6 @@ class PurchaseDetail(models.Model):
                                 blank=True)
     total_product = models.DecimalField(max_digits=10, decimal_places=2,
                                         null=True, blank=True)
+    quan_purchase = models.DecimalField(max_digits=10, decimal_places=2,
+                                       null=True, blank=True)
     audit_log = AuditLog()

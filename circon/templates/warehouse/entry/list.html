@@ -44,7 +44,7 @@
                         <td><a href="{% url 'detail_entry' campo.pk %}">Confirmado</a></td>
                         {% endifequal %}
                         {% ifequal campo.status '2' %}
-                        <td><a href="{% url 'detail_entry' campo.pk %}">Entregado</a></td>
+                        <td><a href="{% url 'detail_entry' campo.pk %}">Recibido</a></td>
                         {% endifequal %}
                         {% ifequal campo.status '3' %}
                         <td><a href="{% url 'detail_entry' campo.pk %}">Cancelado</a></td>

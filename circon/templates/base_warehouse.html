@@ -50,9 +50,6 @@
                         {% if perms.products.to_access_inventory %}
                         <a href="{% url 'list_inventory' %}">Inventario</a>
                         {% endif %}
-                        {% if perms.ambulances.add_ambulances %}
-                        <a href="{% url 'list_ambulances' %}">Ambulancias</a>
-                        {% endif %}
                         {% if perms.products.add_products %}
                         <a href="{% url 'list_products' %}">Productos</a>
                         {% endif %}

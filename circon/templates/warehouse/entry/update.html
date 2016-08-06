@@ -52,21 +52,14 @@ th {
 <!--#####row 1######-->
         <table>
           <legend>Actualizar Ingreso</legend>
-            <br>
-            <tr>
-                <th>N° Ingreso:</th>
-                <td><input class="form-control" style="width:100px" name= n_purchase {{ form.n_purchase }}</td>
-                <th>Proveedor:</th>
-                <td><select class="form-control" style="width:170px" name= provider {{ form.provider }}</td>
-            </tr>
-                <tr><td><br><br></td></tr>
+
         </table>
 <!--#####row 3######-->
         <table>
             <tr>
 
                 <td><input class="form-control" type="hidden" style="width:170px" name= applicant {{ form.applicant }}</td>
-
+                <td><select class="form-control" style="width:170px" name= provider {{ form.provider }}</td>
 
                 <td><input class="form-control" type="hidden" style="width:170px" name= status {{ form.status }}</td>
             </tr>
@@ -75,17 +68,18 @@ th {
 <!--#################-->
          <legend>Detalle Productos</legend>
          <fieldset style="border-left:white 30px solid;">
-            <label style="width: 66px;">Item</label>
             <label style="width: 150px;">Producto</label>
-            <label style="width: 150px;">Cantidad</label>
+            <label style="width: 150px;">Can.Comprada</label>
+            <label style="width: 150px;">Cant.Recibida</label>
               {% for form in inlines %}
                   {% for subform in form %}
                       {{ form.management_form }}
                       {{ subform.id }}
                           <p>
                             <!-- <label style="width: 60px;">{{ forloop.counter }}</label> -->
-                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}&nbsp;</label>
-                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }}&nbsp;</label>
+                            <label><select  class="form-control" style='width: 150px;' {{ subform.products }}&nbsp; </label>
+                            <label><input  class="form-control" style="width: 150px;" {{ subform.quan_purchase }}&nbsp; </label>
+                            <label><input class="form-control" style="width: 150px;" {{ subform.quantity }}&nbsp; </label>&nbsp;
                          </p>
                   {% endfor %}
               {% endfor %}
