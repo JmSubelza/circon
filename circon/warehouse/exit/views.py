@@ -1,17 +1,17 @@
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic import ListView
-from circon.sales.sale.models import Sale
-from circon.sales.sale.models import SaleDetail
+from circon.warehouse.request.models import Request
+from circon.warehouse.request.models import RequestDetail
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from pure_pagination.mixins import PaginationMixin
-from .forms import SaleForm
-from .forms import SaleFormSet
-from .forms import SaleDetailForm
+from .forms import RequestForm
+from .forms import RequestFormSet
+from .forms import RequestDetailForm
 from extra_views import UpdateWithInlinesView
 from extra_views import InlineFormSet
 from circon.warehouse.products.models import Products
@@ -19,7 +19,7 @@ from circon.warehouse.products.models import Products
 
 class ListExit(PaginationMixin, ListView):
     template_name = 'warehouse/exit/list.html'
-    model = Sale
+    model = Request
     paginate_by = 10
     ordering = '-pk'
 
@@ -29,7 +29,7 @@ class DetailExitDetail(SingleObjectMixin, ListView):
     paginate_by = 10
 
     def get(self, request, *args, **kwargs):
-        self.object = self.get_object(queryset=Sale.objects.all())
+        self.object = self.get_object(queryset=Request.objects.all())
         return super(DetailExitDetail, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -38,20 +38,20 @@ class DetailExitDetail(SingleObjectMixin, ListView):
         return context
 
     def get_queryset(self):
-        return self.object.saledetail_set.all()
+        return self.object.requestdetail_set.all()
 
 
 class CreateExit(CreateView):
     template_name = 'warehouse/exit/create.html'
-    model = Sale
-    form_class = SaleForm
+    model = Request
+    form_class = RequestForm
     success_url = '/List_Exit'
 
     def get(self, request, *args, **kwargs):
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        sale_form = SaleFormSet()
+        sale_form = RequestFormSet()
         return self.render_to_response(
                self.get_context_data(form=form,
                                      sale_form=sale_form,))
@@ -60,7 +60,7 @@ class CreateExit(CreateView):
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        sale_form = SaleFormSet(self.request.POST)
+        sale_form = RequestFormSet(self.request.POST)
         if (form.is_valid() and sale_form.is_valid()):
             return self.form_valid(form, sale_form)
         else:
@@ -83,14 +83,14 @@ class CreateExit(CreateView):
 
 
 class ItemInline(InlineFormSet):
-    model = SaleDetail
-    form_class = SaleDetailForm
+    model = RequestDetail
+    form_class = RequestDetailForm
     extra = 0
 
 
 class UpdateExit(UpdateWithInlinesView):
     template_name = 'warehouse/exit/update.html'
-    model = Sale
+    model = Request
     inlines = [ItemInline]
 
     def get_success_url(self):
@@ -99,13 +99,13 @@ class UpdateExit(UpdateWithInlinesView):
 
 class DeleteExit(DeleteView):
     template_name = 'warehouse/exit/delete.html'
-    model = Sale
+    model = Request
     success_url = reverse_lazy('list_exit')
 
 
 class Confirm(UpdateView):
     template_name = 'warehouse/exit/confirm.html'
-    model = Sale
+    model = Request
     fields = ['status']
     initial = {'status': '1'}
 
@@ -115,12 +115,12 @@ class Confirm(UpdateView):
 
 class Delivered(UpdateView):
     template_name = 'warehouse/exit/delivered.html'
-    model = Sale
+    model = Request
     fields = ['status']
     initial = {'status': '2'}
 
     def get_success_url(self):
-        id_products_exit = SaleDetail.objects.filter(relationship_id=self.object.pk)
+        id_products_exit = RequestDetail.objects.filter(relationship_id=self.object.pk)
         for x in id_products_exit:
             cant_products = Products.objects.filter(id=x.products_id)
             for z in cant_products:
@@ -131,7 +131,7 @@ class Delivered(UpdateView):
 
 class Cancel(UpdateView):
     template_name = 'warehouse/exit/cancel.html'
-    model = Sale
+    model = Request
     fields = ['status']
     initial = {'status': '3'}
 

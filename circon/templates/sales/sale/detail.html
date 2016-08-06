@@ -35,7 +35,7 @@ webshims.polyfill('forms forms-ext');
             <a href="{% url 'confirm_sale' sale.pk %}"><button type="button" class="btn btn-primary">Confirmar</button></a>
             {% endifequal %}
             {% ifequal sale.status '1' %}
-            <a href="{% url 'cancel_sale' sale.pk %}"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <a href="{% url 'cancel_sale' sale.pk %}"><button type="button" class="btn btn-danger">Cancelar</button></a>
             {% endifequal %}
         </p>
     </div>

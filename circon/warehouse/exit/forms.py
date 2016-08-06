@@ -1,21 +1,21 @@
-from circon.sales.sale.models import Sale
-from circon.sales.sale.models import SaleDetail
+from circon.warehouse.request.models import Request
+from circon.warehouse.request.models import RequestDetail
 from django.forms import ModelForm
 from django.forms.models import inlineformset_factory
 from django import forms
 
 
-class SaleForm(forms.ModelForm):
+class RequestForm(forms.ModelForm):
 
     class Meta:
-        model = Sale
+        model = Request
         fields = '__all__'
 
 
-class SaleDetailForm(forms.ModelForm):
+class RequestDetailForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
-        super(SaleDetailForm, self).__init__(*args, **kwargs)
+        super(RequestDetailForm, self).__init__(*args, **kwargs)
         instance = getattr(self, 'instance', None)
         if instance and instance.pk:
             self.fields['products'].widget.attrs['readonly'] = True
@@ -30,9 +30,9 @@ class SaleDetailForm(forms.ModelForm):
     quan_request = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
 
     class Meta:
-        model = SaleDetail
+        model = RequestDetail
         fields = '__all__'
 
 
-SaleFormSet = inlineformset_factory(Sale, SaleDetail, form=SaleDetailForm,
-                                    extra=1)
+RequestFormSet = inlineformset_factory(Request, RequestDetail, form=RequestDetailForm,
+                                       extra=1)

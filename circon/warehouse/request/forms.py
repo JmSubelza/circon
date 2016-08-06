@@ -1,20 +1,20 @@
-from circon.sales.sale.models import Sale
-from circon.sales.sale.models import SaleDetail
+from .models import Request
+from .models import RequestDetail
 from django.forms import ModelForm
 from django.forms.models import inlineformset_factory
 
 
-class SaleForm(ModelForm):
+class RequestForm(ModelForm):
     class Meta:
-        model = Sale
+        model = Request
         fields = '__all__'
 
 
-class SaleDetailForm(ModelForm):
+class RequestDetailForm(ModelForm):
 
     class Meta:
-        model = SaleDetail
+        model = RequestDetail
         fields = '__all__'
 
-SaleFormSet = inlineformset_factory(Sale, SaleDetail, form=SaleDetailForm,
-                                    extra=1)
+RequestFormSet = inlineformset_factory(Request, RequestDetail, form=RequestDetailForm,
+                                       extra=1)

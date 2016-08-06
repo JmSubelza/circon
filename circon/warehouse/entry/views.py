@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from pure_pagination.mixins import PaginationMixin
 from .forms import PurchaseForm
+from .forms import PurchaseFormSet
 from .forms import PurchaseDetailForm
 from extra_views import UpdateWithInlinesView, InlineFormSet
 from circon.warehouse.products.models import Products

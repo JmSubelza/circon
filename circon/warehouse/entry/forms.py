@@ -35,4 +35,4 @@ class PurchaseDetailForm(forms.ModelForm):
 
 
 PurchaseFormSet = inlineformset_factory(Purchase, PurchaseDetail, form=PurchaseDetailForm,
-                                    extra=1)
+                                        extra=1)
