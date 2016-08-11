@@ -25,7 +25,9 @@
 
     <!-- Custom Fonts -->
     <link href="{% static "circon/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    {% block css %}
 
+    {% endblock %}
 
 </head>
 
@@ -50,18 +52,18 @@
             <!-- /.navbar-collapse -->
         </nav>
         {% block buttons %}
-        
+
         {% endblock %}
         {% block list %}
-        
+
         {% endblock %}
         <div id="page-wrapper">
-        
-          
+
+
         {% block form %}
-        
+
         {% endblock %}
-           
+
 
         </div>
         <!-- /#page-wrapper -->
@@ -76,11 +78,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "circon/js/bootstrap.min.js" %}"></script>
     <script src="{% static "circon/js/bootstrap.js" %}"></script>
-    
+
     <script src="{% static "circon/js/bootstrap-datetimepicker.js" %}"></script>
     <script src="{% static "circon/js/bootstrap-datetimepicker.es.js" %}"></script>
-   
-    
+
+
     <!--<script src="{% static "js/jquery-ui/jquery-ui.js" %}"</script>
     <script src="{% static "js/jquery-ui/jquery-ui.min.js" %}"</script>
     <script src="{% static "js/jquery-ui/jquery-ui.css" %}"</script>
