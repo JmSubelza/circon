@@ -5,26 +5,28 @@
 {% block javascript %}{% endblock %}
 {% block buttons %}
  <div id="panel-buttons">
-<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
-{{ form.media }}
+<!-- <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+{{ form.media }} -->
     <div id="list-form">
-        </p>
+
+      <!-- </p>
         <form action="/Search/" method="post">
             {% csrf_token %}
             {{ form.products }}
         <button type="submit"  class="btn btn-default" >Buscar</button>
-          </form>
-        </p>
+        </form>
+      </p> -->
+
     </div>
     <div id="buttons">
-        <p>
+        <!-- <p>
           <select class="form-control" name="forma" onchange="location = this.value;">
             <option>Elija Una Categoria</option>
             {% for categories in category %}
                 <option value="{% url 'search_category' categories.pk %}">{{ categories.category }}</option>
             {% endfor %}
           </select>
-        </p>
+        </p> -->
 
     </div>
 </div>
@@ -43,8 +45,8 @@
                   </tr>
               </thead>
               <tbody>
-               {% if object_list %}
-                  {% for campo in object_list %}
+               {% if products %}
+                  {% for campo in products %}
                      <tr>
                         <td><a href="#">{{campo.products}}</a></td>
                         <td><a href="#">{{campo.measure}}</a></td>

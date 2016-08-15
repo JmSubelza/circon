@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from dal import autocomplete
 from .forms import SearchForm
 from django.views.generic.edit import FormMixin
+from django.shortcuts import render
 
 
 class Inventory(PaginationMixin, FormMixin, ListView):
@@ -39,6 +40,15 @@ class SearchCategory(PaginationMixin, FormMixin, ListView):
         context['category'] = Category.objects.all()
         context['form'] = self.get_form(self.form_class)
         return context
+
+
+class Search(TemplateView):
+
+    def post(self, request, *args, **kwargs):
+        search = request.POST["products"]
+        products = Products.objects.filter(id=search)
+        print(search)
+        return render(request, 'warehouse/inventory/search.html', {'products':products})
 
 
 class ProductsAutocomplete(autocomplete.Select2QuerySetView):
