@@ -61,7 +61,7 @@ class CreatePurchase(CreateView):
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        purchase_form = PurchaseFormSet(self.request.POST)
+        purchase_form = PurchaseFormSet(self.request.POST, request.FILES)
         if (form.is_valid() and purchase_form.is_valid()):
             return self.form_valid(form, purchase_form)
         else:
