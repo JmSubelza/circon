@@ -1,6 +1,9 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+from .views import LoginView
+from .views import LogoutView
 
-urlpatterns = patterns('circon.configuration.authenticate.views',
-                       url(r'^login/$', 'login_view', name='view_login'),
-                       url(r'^logout/$', 'logout_view', name='view_logout'),
-                       )
+
+urlpatterns = [
+               url(r'^login/$', LoginView.as_view(), name='view_login'),
+               url(r'^logout/$', LogoutView.as_view(), name='view_logout'),
+               ]
